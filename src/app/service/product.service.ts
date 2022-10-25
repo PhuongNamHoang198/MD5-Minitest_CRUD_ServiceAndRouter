@@ -35,17 +35,23 @@ export class ProductService {
   constructor() {
   }
 
+  productTemp : Product = {}
+
+  getProductTemp(){
+    return this.productTemp;
+  }
   getAll() {
     return this.products;
   }
 
-  // @ts-ignore
-  findProductById(id:number) : Product{
+
+  findProductById(id:number) {
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].id === id){
         return this.products[i]  ;
       }
     }
+    return null;
   }
 
   saveProduct(product: Product) {

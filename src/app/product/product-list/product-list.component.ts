@@ -10,7 +10,7 @@ import {Product} from "../product";
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
-  productEdit: Product = {
+  productEdit: Product | null = {
     id: 1,
     name: '',
     price: 1,

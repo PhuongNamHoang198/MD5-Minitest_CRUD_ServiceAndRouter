@@ -19,7 +19,7 @@ export class ProductEditComponent implements OnInit {
     description: new FormControl(),
   });
 
-  product : Product = {
+  product : Product | null = {
     id: 1,
     name: '',
     price: 1,
@@ -34,6 +34,7 @@ export class ProductEditComponent implements OnInit {
 
   submit() {
     const productEdit = this.productForm.value;
+    // @ts-ignore
     this.productService.editProduct(this.product.id,productEdit);
     this.productForm.reset();
   }

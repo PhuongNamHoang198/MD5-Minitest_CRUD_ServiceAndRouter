@@ -6,7 +6,8 @@ import {RouterOutlet} from "@angular/router";
 import {ProductListComponent} from "./product/product-list/product-list.component";
 import {ProductCreateComponent} from "./product/product-create/product-create.component";
 import {ProductEditComponent} from "./product/product-edit/product-edit.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AppRoutingModule} from "./app-routing-module";
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import {ReactiveFormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    RouterOutlet,
-    ReactiveFormsModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
