@@ -34,7 +34,6 @@ export class ProductEditComponent implements OnInit {
 
   submit() {
     const productEdit = this.productForm.value;
-    // @ts-ignore
     this.productService.editProduct(this.product.id,productEdit);
     this.productForm.reset();
   }

@@ -61,7 +61,7 @@ export class ProductService {
     console.log(this.getAll());
   }
 
-  editProduct(id : number, temp: Product){
+  editProduct(id: number | undefined, temp: Product){
     const indexOfObject = this.products.findIndex((object) => {
       return object.id === id;
     });
