@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../../service/product.service";
-import {ProductListComponent} from "../product-list/product-list.component";
-import {Product} from "../product";
 
 @Component({
   selector: 'app-product-edit',
@@ -12,30 +10,24 @@ import {Product} from "../product";
 export class ProductEditComponent implements OnInit {
   @Input("id-edit-product") id : number = 0;
 
-  productForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    price: new FormControl(),
-    description: new FormControl(),
-  });
+  productForm: FormGroup ;
 
-  product : Product | null = {
-    id: 1,
-    name: '',
-    price: 1,
-    description: ''
+  constructor(private productService : ProductService) {
+    const product = this.productService.productTemp;
+    this.productForm = new FormGroup({
+      id: new FormControl(product.id),
+      name: new FormControl(product.name),
+      price: new FormControl(product.price),
+      description: new FormControl(product.description),
+    });
   }
 
-  constructor(private productListComponent : ProductListComponent,private productService : ProductService) { }
-
   ngOnInit(): void {
-    this.product = this.productListComponent.productEdit;
   }
 
   submit() {
-    const productEdit = this.productForm.value;
-    // @ts-ignore
-    this.productService.editProduct(this.product.id,productEdit);
+    const productEdit2 = this.productForm.value;
+    this.productService.editProduct(productEdit2.id,productEdit2);
     this.productForm.reset();
   }
 }

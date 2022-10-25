@@ -11,7 +11,7 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
-    <td><button (click)="findProductById(i+1)">Edit</button></td>
+    <a (click)="findProductById(i+1)" routerLink="/product/edit">Edit</a>
     <td><button (click)="deleteProduct(i+1)">Delete</button></td>
   </tr>
 </table>

@@ -10,7 +10,7 @@ import {Product} from "../product";
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
-  productEdit: Product | null = {
+  productEdit: Product= {
     id: 1,
     name: '',
     price: 1,
@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
 
   findProductById(id: number) {
     // console.log(this.productService.findProductById(id));
-    this.productEdit = this.productService.findProductById(id);
+    this.productEdit = <Product>this.productService.findProductById(id);
     console.log(this.productEdit);
   }
 
